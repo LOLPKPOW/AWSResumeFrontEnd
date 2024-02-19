@@ -47,5 +47,3 @@ async function updateVisitorCount() {
 
 // Call the function directly when the page loads
 document.addEventListener('DOMContentLoaded', updateVisitorCount);
-
-// TEST 1 2 3 4

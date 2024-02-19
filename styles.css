@@ -1,0 +1,60 @@
+/* Container for navigation and main content */
+.container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    background-color: #1e1e1e; /* Dark background color */
+    font-family: Arial, sans-serif; /* Change the font family */
+    border: 2px solid #fff; /* Add border with white color */
+    border-radius: 10px; /* Add border radius for rounded corners */
+    padding: 20px; /* Add padding to create space between content and border */
+}
+
+/* Navigation styles */
+nav {
+    background-color: #333;
+    color: #fff;
+    width: 150px;
+    position: fixed;
+    overflow-y: auto; /* Add scrollbar if necessary */
+    border-right: 2px solid #fff; /* Add border to the right for a separation effect */
+    font-family: Arial, sans-serif; /* Change the font family */
+    border-radius: 10px; /* Add border radius for rounded corners */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 20px 0;
+    margin: 0; /* Remove default margin */
+}
+
+nav ul li {
+    margin-bottom: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+/* Main content styles */
+main {
+    flex: 1;
+    padding: 40px; /* Increase padding around the centered text */
+    margin-left: 170px; /* Adjusted margin-left value */
+    background-color: #1e1e1e; /* Dark background color */
+    color: #ccc; /* Lighter shade of gray text color for the main content */
+    text-align: center; /* Center-align the text */
+    font-family: Arial, sans-serif; /* Change the font family */
+}
+
+/* Remove bullet points from list items */
+nav ul {
+    list-style: none;
+    padding: 0;
+}

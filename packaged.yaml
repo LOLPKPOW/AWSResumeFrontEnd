@@ -1,0 +1,84 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  VisitorCounterFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: s3://pwoodresume/e7793cdc4af6bf1e7cb1ff710bc4dff1
+      Environment:
+        Variables:
+          TABLE_NAME:
+            Ref: VisitorCounterTable
+      Policies:
+      - DynamoDBReadPolicy:
+          TableName:
+            Ref: VisitorCounterTable
+      - DynamoDBWritePolicy:
+          TableName:
+            Ref: VisitorCounterTable
+      Role: arn:aws:iam::853234049808:role/service-role/ExpenseTracker-role-q4ydxqcj
+    Metadata:
+      SamResourceId: VisitorCounterFunction
+  VisitorCounterTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: VisitorCounterTable
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+      - AttributeName: CounterID
+        AttributeType: N
+      - AttributeName: DateRecorded
+        AttributeType: S
+      KeySchema:
+      - AttributeName: CounterID
+        KeyType: HASH
+      - AttributeName: DateRecorded
+        KeyType: RANGE
+    Metadata:
+      SamResourceId: VisitorCounterTable
+  VisitorCounterApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: prod
+      DefinitionBody:
+        openapi: 3.0.1
+        info:
+          title: Visitor Counter API
+        paths:
+          /visitor-count:
+            get:
+              x-amazon-apigateway-integration:
+                uri:
+                  Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${VisitorCounterFunction.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: GET
+                type: aws_proxy
+            post:
+              x-amazon-apigateway-integration:
+                uri:
+                  Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${VisitorCounterFunction.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                type: aws_proxy
+    Metadata:
+      SamResourceId: VisitorCounterApi
+  VisitorCounterApiIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    Properties:
+      ApiId:
+        Ref: VisitorCounterApi
+      IntegrationType: AWS_PROXY
+      IntegrationUri:
+        Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${VisitorCounterFunction.Arn}/invocations
+      PayloadFormatVersion: '2.0'
+    Metadata:
+      SamResourceId: VisitorCounterApiIntegration
+Outputs:
+  VisitorCounterApiUrl:
+    Value:
+      Fn::Sub: https://${VisitorCounterApi}.execute-api.${AWS::Region}.amazonaws.com/prod/visitor-count
+  VisitorCounterFunctionArn:
+    Value:
+      Fn::Sub: ${VisitorCounterFunction.Arn}

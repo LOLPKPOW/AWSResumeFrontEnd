@@ -56,21 +56,17 @@
 
             </section>
             <section>
-                <h2>Education</h2>
-                <p>Bachelor of Science in Computer Science - Cloud Computing from Western Governors University</p>
+                <h2><u>GitHub</h2></section><u>
+                <p>Feel free to check out my GitHub at <a href="https://github.com/?ref=github.co">https://github.com/?ref=github.co</a></p>
+                <p>My GitHub has some CloudFormation Templates, a SAM template, and a script I built for O365 common functions that require Powershell. They're mostly still a work in progress.</p>
             </section>
             <section>
-                <h2>Certifications</h2>
-                <p>AWS SysOps Administrator - Associate (Verification: c9741068dd014a5ab0a064b07fb5c837)<br>
-                AWS Certified Developer - Associate - Associate (Verification: NGSFH3NC8F4QQKSS)<br>
-                AWS Solutions Architect - Associate (Verification: P9LTNHX17BB119K0)<br>
-                AWS Certified Cloud Practitioner (Verification: T37D3FTKYJF1QRS1)<br>
-                CompTIA Project+ (Verification: FLBL2R6YBBV4109G)<br>
-                CompTIA Cloud+ (Verification: 7HYRLRLSKEV4QGSD)<br>
-                CompTIA Security+ (Verification: 5346QE4QCJF1QNSZ)<br>
-                CompTIA Network+ (Verification: BYX22DWNRHREQ551)<br>
-                CompTIA A+ (Verification: SCX5DMV3XHF11LCS)<br>
-                CCSP Associate (Associate of ISC2) (ISC2 Member ID: 1512237)</p>
+                <h2><u>AWS Projects</u></h2>
+                <p>This website is hosted in an S3 bucket with a CloudFront distribution. The code is managed in my GitHub, using a CodePipeline to update the data in the bucket. 
+                The pipeline automatically deploys the code and invalidates the CloudFront distribution so updates happen immediately. The visitor counter was deploying using SAM. It deployed the DynamoDB database,
+                the Lambda function, and the API Gateway. Code can be updated through the backend CodePipeline by updating the CloudFormation stack.</p>
+                <p>I also have a little expense tracker webapp I created for my wife and I at <a href="https://expenses.pwoodward.info">https://expenses.pwoodward.info</a>. It's not particularly secure for ease of access for my wife :)</p>
+
             </section>
             <footer>
                 <script>

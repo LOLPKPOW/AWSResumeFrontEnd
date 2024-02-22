@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resume</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <!-- Add more links as needed -->
+            </ul>
+        </nav>
+        <main>
+            <header>
+                <h1>Patrick Woodward</h1>
+                <p>Systems Administrator and Architect</p>
+            </header>
+            <section>
+                <h2>About Me</h2>
+                <p>I began my IT journey in 2019, when family dynamics drove me to change careers from high-end Chef to a more family friendly career.
+                   I quit my job and worked graveyard shifts while enrolling in my local Community college. I worked overnights while studying. I've continued to keep that drive for knowledge and career growth.
+                   I've finished my Bachelor's Degree in Cloud Computing, and have completed 10 certifications.
+                </p>
+            </section>
+            <section>
+                <h2>Work Experience</h2>
+                <p><u>PCA Technology Solutions - Solutions Administrator</u><br>
+                    Little Rock, Arkansas<br>
+                    06/2022 - Current</p>
+                <p></p>
+                <p>Responsible for troubleshooting/administration of Windows Server, O365, and network configuration/equipment for many clients of all sizes and needs.</p>
+                <p>Extensive work with WatchGuard firewalls and Aruba switches.</p>
+                <p>Responsible for training new interns and new techs.</p>
+                <p>Lead AWS implementation for client needs, including VPC, EC2, VPN, and CloudFormation.</p>
+                <p>The initial point of contact for email/system compromise</p>
+                <p>Responsible for EDR deployment, maintainance, and alerts.</p>
+                <p>Responsible for Cloud Backups through Cove Data Protection.</p>
+                <p>Extensive remote support experience, working with </p>
+                <p></p>
+                <p><u>SSCS Inc. - Software and Systems Support</u><br>
+                Salinas, California<br>
+                01/2020 - 06/2022</p>
+                <p> </p>
+                <p>Provide phone-based technical support to users of SSCS Technology, including assistance on both hardware and software issues.</p>
+                <p>Administering end-user problems, identifying the source of problems, and determining possible solutions.</p>
+                <p>Troubleshooting network systems and applications to identify and correct malfunctions or other operational problems.</p>
+                <p>Administering end-user workstations and supporting end-user activity using TCP/IP on primarily Windows-based LAN.</p>
+                <p>Performing onsite installations and testing of SSCS Technology for new and upgrading customer store sites.</p>
+
+            </section>
+            <section>
+                <h2>Education</h2>
+                <p>Bachelor of Science in Computer Science - Cloud Computing from Western Governors University</p>
+            </section>
+            <section>
+                <h2>Certifications</h2>
+                <p>AWS SysOps Administrator - Associate (Verification: c9741068dd014a5ab0a064b07fb5c837)<br>
+                AWS Certified Developer - Associate - Associate (Verification: NGSFH3NC8F4QQKSS)<br>
+                AWS Solutions Architect - Associate (Verification: P9LTNHX17BB119K0)<br>
+                AWS Certified Cloud Practitioner (Verification: T37D3FTKYJF1QRS1)<br>
+                CompTIA Project+ (Verification: FLBL2R6YBBV4109G)<br>
+                CompTIA Cloud+ (Verification: 7HYRLRLSKEV4QGSD)<br>
+                CompTIA Security+ (Verification: 5346QE4QCJF1QNSZ)<br>
+                CompTIA Network+ (Verification: BYX22DWNRHREQ551)<br>
+                CompTIA A+ (Verification: SCX5DMV3XHF11LCS)<br>
+                CCSP Associate (Associate of ISC2) (ISC2 Member ID: 1512237)</p>
+            </section>
+            <footer>
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        async function updateVisitorCount() {
+                            try {
+                                const response = await fetch('https://k461om3b4f.execute-api.us-east-2.amazonaws.com/prod/visitor-count'); 
+                                if (!response.ok) {
+                                    throw new Error('Failed to fetch visitor count');
+                                }
+                                const visitorCount = await response.text();
+                                document.getElementById('visitorCount').textContent = visitorCount;
+                            } catch (error) {
+                                console.error('Error fetching visitor count:', error);
+                                // You can display an error message or handle the error in other ways here
+                            }
+                        }
+                
+                        updateVisitorCount(); // Call the function when the page loads
+                    });
+                </script>
+                
+                
+                <p>Contact me at: patrick@pwoodward.info</p>
+                <p>Number of visitors: <span id="visitorCount">0</span></p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
